@@ -1,0 +1,25 @@
+
+<div class="container flex-container" >
+
+  <mat-card class="mat-card">
+    <mat-toolbar color='primary' class="mat-toolbar">
+      <span>Login Form</span>
+    </mat-toolbar>
+    <form #f="ngForm">
+      <mat-form-field appearance="fill" >
+        <mat-label>Email</mat-label>
+        <input matInput required class="form-control" type="email" name="email" #signInEmail  ngModel pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+
+        <mat-error>Provide valid Email!</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput required class="form-control" type="password" name="password" ngModel #signInPassword>
+        <mat-error>Provide valid Password!</mat-error>
+      </mat-form-field>
+    </form>
+    <button  mat-raised-button color="primary" [disabled]="f.invalid" (click)="onSignIn(signInEmail.value,signInPassword.value)">Sign In</button>
+    &nbsp;&nbsp;<a href="/signup">Not registered? Sign UP Here</a>
+  </mat-card>
+
+</div>

@@ -1,0 +1,25 @@
+
+<div class="container flex-container">
+
+  <mat-card class="mat-card">
+    <mat-toolbar color='primary' class="mat-toolbar">
+      <span>Register Form</span>
+    </mat-toolbar>
+    <form #signupform="ngForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput required type="email" name="email" ngModel #signUpEmail pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+        <mat-error>Provide valid Email!</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput required type="password" name="password" ngModel #signUpPassword>
+        <mat-error>Password must be provided!</mat-error>
+      </mat-form-field>
+    </form>
+
+    <button  mat-raised-button color="primary" [disabled]="signupform.invalid" (click)="onSignUp(signUpEmail.value,signUpPassword.value)">Sign Up</button>
+    &nbsp;&nbsp; <a href="/login">Alredy registered? Login Here</a>
+  </mat-card>
+
+</div>
